@@ -1,10 +1,16 @@
-import React from 'react';
+// app/page.js
 
-export default function About() {
-    return (
-        <div>   
-            <h1>About Us</h1>
-            <p>This page provides information about our company and team.</p>
-        </div>
-    );
+async function getData() {
+  await new Promise((resolve) => setTimeout(resolve, 3000)); // simulate delay
+  return "Data loaded";
+}
+
+export default async function Page() {
+  const data = await getData();
+
+  return (
+    <div>
+      <h1>{data}</h1>
+    </div>
+  );
 }
